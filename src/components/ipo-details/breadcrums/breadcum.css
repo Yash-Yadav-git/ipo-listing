@@ -1,0 +1,10 @@
+.dbWrappper {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  color: #6b7280;
+}
+
+.bdLinks {
+  cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "../../../images/oyo-rooms-seeklogo.svg";
 import "./table.css";
+import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Table = () => {
   const columns = [
@@ -9,6 +11,7 @@ const Table = () => {
     "Price Range",
     "Min Invest/Qty",
   ];
+  const navigate = useNavigate();
 
   const companiesData = [
     {
@@ -36,13 +39,20 @@ const Table = () => {
       qty: "100 Shares/5Lots",
     },
   ];
+  const handleRowClick = (companyDetails) => {
+    navigate(`details`, {
+      state: {
+        companyDetails: companyDetails,
+      },
+    });
+  };
 
   const renderRows = () => {
     return (
       <>
-        {companiesData.map((item) => {
+        {companiesData.map((item, index) => {
           return (
-            <tr>
+            <tr key={index} onClick={() => handleRowClick(item)}>
               <td>
                 <div className="dataDateWrapper">
                   <div className="dataImageRow">

@@ -26,6 +26,7 @@ table tr {
 
 table td {
   padding: 20px 0px 20px 0px;
+  cursor: pointer;
 }
 
 tbody {
