@@ -1,0 +1,185 @@
+.detailsMainWrapper {
+  width: 800px;
+  border-radius: 0.625rem;
+  border: 2px solid #f3f4f6;
+  padding: 1.875rem;
+}
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.headLeftWrapper {
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.headRightWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.backIconWrapper {
+  padding: 0.8125rem;
+  border: 2px solid #f3f4f6;
+  border-radius: 0.625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.companyDetailsWrapper {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.companyDetailsWrapper > div:nth-child(2) > span:nth-child(1) {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.companyDetailsWrapper > div:nth-child(2) > span:nth-child(3) {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.dataImage {
+  cursor: pointer;
+}
+
+.detailsCtaWrapper button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.detailsCtaWrapper {
+  width: 200px;
+  max-width: 200px;
+  background-color: #312e81;
+  color: white;
+  padding: 0.8125rem 0px 0.8125rem 0px;
+  border-radius: 0.625rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.detailsCtaWrapper label {
+  cursor: pointer;
+}
+
+.ipoDetailsWrapper {
+  margin-top: 1.25rem;
+  padding: 1.25rem 0.625rem 1.25rem 0.625rem;
+  border: 2px solid #f3f4f6;
+  border-radius: 0.625rem;
+}
+
+.ipoDetailsWrapper > span:nth-child(1) {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 1.875rem;
+}
+
+.sectionWrapper {
+  margin: 0.9375rem;
+  padding: 1.875rem;
+  border: 2px solid black;
+  border-radius: 0.625rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 1.25rem;
+}
+
+.mobileSectionWrapper {
+  margin: 0.9375rem;
+  padding: 1.875rem;
+  border: 2px solid black;
+  border-radius: 0.625rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 1.25rem;
+}
+
+.detailsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: space-between;
+}
+
+.companySubDetailsHeading {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+.companyDetailsHeading {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.about {
+  margin-top: 20px;
+  padding: 30px;
+  border: 2px solid #f3f4f6;
+  border-radius: 10px;
+}
+
+.mbAbout {
+  margin-top: 20px;
+}
+
+.aboutHeading {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 1.875rem;
+}
+
+.aboutDetails {
+  margin-top: 20px;
+  font-weight: 100;
+}
+
+@media (max-width: 780px) {
+  .detailsMainWrapper {
+    width: 95%;
+    height: 100vh;
+  }
+  .headRightWrapper,
+  .headRightWrapper {
+    gap: 0.5rem;
+  }
+  .backIconWrapper {
+    padding: 0.6875rem;
+  }
+  .companyDetailsWrapper > div:nth-child(2) > span:nth-child(1) {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  .ipoDetailsWrapper > span:nth-child(1) {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  .ipoDetailsWrapper > span:nth-child(1) {
+    padding: 0;
+  }
+  .aboutHeading {
+    font-size: 1.125rem;
+    padding: 0;
+  }
+}

@@ -1,13 +1,16 @@
 import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
 import Breadcumbs from "../../components/ipo-details/breadcrums/Breadcum";
+import CompanyDetailsHeader from "../../components/ipo-details/header/CompanyDetailsHeader";
+import "./ipoDetailsPage.css";
 
 const IpoDetailsPage = () => {
   return (
-    <div>
+    <>
       <Breadcumbs />
-      <h1>Hello from details page</h1>
-    </div>
+      <main className="mainWrapper">
+        <CompanyDetailsHeader />
+      </main>
+    </>
   );
 };
 
