@@ -18,8 +18,9 @@ const Stepper = ({ stepsConfig = [] }) => {
   }, [stepRef.current]);
 
   const calculateProgressWidth = () => {
-    return (currStep.current / (stepsConfig.length - 1)) * 100;
+    return ((currStep.current - 1) / (stepsConfig.length - 1)) * 100;
   };
+  console.log("Current step is", currStep.current);
   return (
     <div className="stepper">
       {stepsConfig.map((item, index) => {
@@ -50,7 +51,7 @@ const Stepper = ({ stepsConfig = [] }) => {
       <div
         className="prgressBar"
         style={{
-          width: `cal(100% - ${margins.marginLeft + margins.marginRight}px)`,
+          width: `calc(100% - ${margins.marginLeft + margins.marginRight}px)`,
           marginLeft: margins.marginLeft,
           marginRight: margins.marginRight,
         }}
