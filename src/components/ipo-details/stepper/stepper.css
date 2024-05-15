@@ -50,14 +50,6 @@
   font-weight: 200;
 }
 
-.progress {
-  position: absolute;
-  top: 20%;
-  height: 2px;
-  background-color: black;
-  z-index: 1;
-}
-
 .stepperTick {
   position: absolute;
   z-index: 100;
@@ -66,7 +58,6 @@
 .prgressBar {
   position: absolute;
   height: 4px;
-  width: 85%;
   top: 20%;
   background-color: #ccc;
 }
@@ -74,7 +65,35 @@
 .progress {
   background-color: green;
   transition: 0.2s ease;
+  height: 3px;
 }
 
 @media (max-width: 780px) {
+  .prgressBar {
+    top: 50%;
+    left: 4.3%;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  }
+  .progress {
+    position: absolute;
+    top: 5%;
+    left: 4.3%;
+    background-color: green;
+    transition: 0.2s ease;
+    height: 3px;
+  }
+  .stepper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: row;
+  }
+  .stepName {
+    align-items: first baseline;
+    margin-left: 20px;
+  }
 }

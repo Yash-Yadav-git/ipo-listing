@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./stepper.css";
 import { TiTick } from "react-icons/ti";
 
-const Stepper = ({ stepsConfig = [] }) => {
+const Stepper = ({ stepsConfig = [], isMobile }) => {
   const [margins, setMargins] = useState({
     marginLeft: 0,
     marginRight: 0,
@@ -48,19 +48,35 @@ const Stepper = ({ stepsConfig = [] }) => {
           </div>
         );
       })}
-      <div
-        className="prgressBar"
-        style={{
-          width: `calc(100% - ${margins.marginLeft + margins.marginRight}px)`,
-          marginLeft: margins.marginLeft,
-          marginRight: margins.marginRight,
-        }}
-      >
+      {isMobile ? (
         <div
-          className="progress"
-          style={{ width: `${calculateProgressWidth()}%` }}
-        ></div>
-      </div>
+          className="prgressBar"
+          style={{
+            width: `calc(100% - 10px)`,
+          }}
+        >
+          <div
+            className="progress"
+            style={{
+              width: `${calculateProgressWidth()}%`,
+            }}
+          ></div>
+        </div>
+      ) : (
+        <div
+          className="prgressBar"
+          style={{
+            width: `calc(100% - ${margins.marginLeft + margins.marginRight}px)`,
+            marginLeft: margins.marginLeft,
+            marginRight: margins.marginRight,
+          }}
+        >
+          <div
+            className="progress"
+            style={{ width: `${calculateProgressWidth()}%` }}
+          ></div>
+        </div>
+      )}
     </div>
   );
 };
