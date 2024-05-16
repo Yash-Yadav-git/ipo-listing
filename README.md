@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Getting Started with IPO Listing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the IPO Listing project! This project is created using Create React App (CRA).
 
-## Available Scripts
+## To Get Started
 
-In the project directory, you can run:
+Ensure you have the latest updates by pulling from the main branch of the repository.
 
-### `npm start`
+### Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Dynamic Table Component:** Display data in a customizable table format.
+2. **Dynamic Breadcrumbs Component:** Easily navigate through the application with breadcrumb navigation.
+3. **Dynamic Stepper Component:** Guide users through a step-by-step process with a flexible stepper component.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Note: This application was built without relying on any third-party UI libraries.
 
-### `npm test`
+Feel free to explore and enhance the project as needed!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Working
 
-### `npm run build`
+![image](https://github.com/Yash-Yadav-git/ipo-listing/assets/93070400/4e87dade-f7c7-4141-85e7-d4366a33a227)
+![image](https://github.com/Yash-Yadav-git/ipo-listing/assets/93070400/acd2f158-e23d-459f-8fa7-75c3f8132d71)
+![image](https://github.com/Yash-Yadav-git/ipo-listing/assets/93070400/d24b7aaf-d02a-4614-887b-3f7dd01e2d2c)
+![image](https://github.com/Yash-Yadav-git/ipo-listing/assets/93070400/7e73a1ac-586d-4ed3-b131-e54ca185f18b)
+![image](https://github.com/Yash-Yadav-git/ipo-listing/assets/93070400/3431fa09-6357-42fb-9123-18a9808c74fd)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
