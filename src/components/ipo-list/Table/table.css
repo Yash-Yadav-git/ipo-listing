@@ -79,3 +79,66 @@ tbody {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 780px) {
+  table {
+    width: 90%;
+  }
+  .tableHeader > th:nth-child(1) {
+    padding-left: 1.125rem;
+  }
+  table td {
+    padding: 1.125rem 0px 1.125rem 0px;
+  }
+  .tableHeader {
+    height: 2rem;
+  }
+  .dataDateWrapper {
+    padding-left: 1.125rem;
+  }
+  .dataImageRow > img {
+    display: none;
+  }
+  .dataHeading {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .dataSubHeading {
+    font-size: 0.6875rem;
+    font-weight: 100;
+  }
+}
+
+@media (max-width: 450px) {
+  table {
+    width: 90%;
+  }
+  thead th {
+    font-size: 0.6875rem;
+  }
+  .tableHeader > th:nth-child(1) {
+    padding-left: 0.875rem;
+  }
+  table td {
+    padding: 0.875rem 0px 0.875rem 0px;
+  }
+  .tableHeader {
+    height: 2rem;
+  }
+  .dataDateWrapper {
+    padding-left: 0.875rem;
+  }
+  .dataImageRow > img {
+    display: none;
+  }
+  .dataHeading {
+    font-size: 0.6875rem;
+    font-weight: 600;
+  }
+
+  .dataSubHeading {
+    font-size: 0.5rem;
+    font-weight: 100;
+  }
+}
