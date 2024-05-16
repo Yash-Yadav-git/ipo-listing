@@ -1,10 +1,15 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import ListingPage from "./pages/ipo-listing";
+import IpoDetailsPage from "./pages/ipo-details";
 
 function App() {
   return (
-    <div className="App">
-      <h1>IPO Listing</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<ListingPage />} />
+      <Route path="/details" element={<IpoDetailsPage />} />
+      <Route />
+    </Routes>
   );
 }
 

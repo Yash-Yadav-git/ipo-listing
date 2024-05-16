@@ -1,0 +1,95 @@
+.stepper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepNumber {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  z-index: 3;
+}
+
+.completed {
+  background-color: green;
+  color: white;
+}
+
+.stepName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepName p {
+  margin: 0;
+}
+
+.names {
+  width: 50%;
+  font-size: 14px;
+  font-weight: 600;
+}
+.values {
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.stepperTick {
+  position: absolute;
+  z-index: 100;
+}
+
+.prgressBar {
+  position: absolute;
+  height: 4px;
+  top: 20%;
+  background-color: #ccc;
+}
+
+.progress {
+  background-color: green;
+  transition: 0.2s ease;
+  height: 4px;
+}
+
+@media (max-width: 780px) {
+  .prgressBar {
+    top: 50%;
+    left: 5%;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  }
+  .progress {
+    background-color: green;
+    transition: 0.2s ease;
+    height: 3px;
+  }
+  .stepper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: row;
+  }
+  .stepName {
+    align-items: first baseline;
+    margin-left: 20px;
+  }
+}
