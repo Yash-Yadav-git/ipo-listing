@@ -1,17 +1,19 @@
 .dbWrappper {
-  width: 20%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   color: #6b7280;
+  margin-bottom: 10px;
+  gap: 10px;
 }
 
 .bdLinks {
   cursor: pointer;
+  word-break: keep-all;
 }
 
 @media (max-width: 780px) {
   .dbWrappper {
-    width: 60%;
     margin-bottom: 20px;
+    font-size: 0.75rem;
   }
 }

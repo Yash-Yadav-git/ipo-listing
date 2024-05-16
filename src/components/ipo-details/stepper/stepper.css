@@ -70,13 +70,15 @@
 @media (max-width: 780px) {
   .prgressBar {
     top: 50%;
-    left: 5%;
+    left: 3%;
+    height: 3px;
     transform: translateX(-50%) translateY(-50%) rotate(90deg);
   }
   .progress {
     background-color: green;
     transition: 0.2s ease;
     height: 3px;
+    left: 3%;
   }
   .stepper {
     flex-direction: column;
@@ -91,5 +93,11 @@
   .stepName {
     align-items: first baseline;
     margin-left: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .prgressBar {
+    left: 5%;
   }
 }
