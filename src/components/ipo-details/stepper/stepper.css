@@ -7,7 +7,6 @@
 }
 
 .step {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,19 +64,16 @@
 .progress {
   background-color: green;
   transition: 0.2s ease;
-  height: 3px;
+  height: 4px;
 }
 
 @media (max-width: 780px) {
   .prgressBar {
     top: 50%;
-    left: 4.3%;
+    left: 5%;
     transform: translateX(-50%) translateY(-50%) rotate(90deg);
   }
   .progress {
-    position: absolute;
-    top: 5%;
-    left: 4.3%;
     background-color: green;
     transition: 0.2s ease;
     height: 3px;

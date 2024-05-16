@@ -75,15 +75,15 @@ const CompanDetails = () => {
 
   const IPO_STEPS_Mobile = [
     { name: "Bidding starts", value: "12 Dec 2034", isCompleted: true },
-    { name: "Bidding ends", value: "15 Dec 2034", isCompleted: false },
+    { name: "Bidding ends", value: "15 Dec 2034", isCompleted: true },
     {
       name: "Allotment finalization",
       value: "15 Dec 2034",
-      isCompleted: false,
+      isCompleted: true,
     },
-    { name: "Refund initiation", value: "18 Dec 2034", isCompleted: false },
-    { name: "Demat transfer", value: "18 Dec 2034", isCompleted: false },
-    { name: "Listing date", value: "21 Dec 2034", isCompleted: false },
+    { name: "Refund initiation", value: "18 Dec 2034", isCompleted: true },
+    { name: "Demat transfer", value: "18 Dec 2034", isCompleted: true },
+    { name: "Listing date", value: "21 Dec 2034", isCompleted: true },
   ];
 
   return (
@@ -131,7 +131,7 @@ const CompanDetails = () => {
       <div className="ipoDetailsWrapper">
         <span>IPO timeline</span>
         <Stepper
-          stepsConfig={isMobile ? IPO_STEPS_Mobile : IPO_STEPS}
+          stepsConfig={isMobile ? IPO_STEPS_Mobile : IPO_STEPS_Mobile}
           isMobile={isMobile}
         />
       </div>

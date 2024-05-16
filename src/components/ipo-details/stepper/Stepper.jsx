@@ -1,28 +1,45 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./stepper.css";
-import { TiTick } from "react-icons/ti";
 
 const Stepper = ({ stepsConfig = [], isMobile }) => {
   const [margins, setMargins] = useState({
     marginLeft: 0,
     marginRight: 0,
   });
-  const currStep = useRef(stepsConfig.findIndex((item) => !item.isCompleted));
+  const [mobileWidth, setMobileWidth] = useState("");
+  const [progressWidth, setProgressWidth] = useState(0);
+  const currStep = stepsConfig.findIndex((item) => !item.isCompleted);
   const stepRef = useRef([]);
+  const mainStep = useRef();
 
   useEffect(() => {
+    console.log("Values are ", mainStep.current.offsetHeight);
     setMargins({
       marginLeft: stepRef.current[0].offsetWidth / 2,
       marginRight: stepRef.current[stepRef.current.length - 1].offsetWidth / 2,
     });
-  }, [stepRef.current]);
+
+    setMobileWidth(
+      isMobile ? mainStep.current.offsetHeight : mainStep.current.offsetWidth
+    );
+    let arr = stepRef.current.splice(0, currStep);
+    arr = arr.length === 0 ? stepRef.current : arr;
+    const width = arr.reduce((acc, curr, index, arr) => {
+      if (index === 0 || index === arr.length - 1) {
+        return (acc += curr.offsetWidth / 2);
+      }
+      return (acc += curr.offsetWidth);
+    }, 0);
+    setProgressWidth(width);
+  }, [stepRef.current, mainStep.current, isMobile]);
 
   const calculateProgressWidth = () => {
-    return ((currStep.current - 1) / (stepsConfig.length - 1)) * 100;
+    if (currStep === -1) return 100;
+    return ((currStep - 1) / (stepsConfig.length - 1)) * 100;
   };
-  console.log("Current step is", currStep.current);
+
   return (
-    <div className="stepper">
+    <div className="stepper" ref={mainStep}>
       {stepsConfig.map((item, index) => {
         return (
           <div
@@ -52,7 +69,7 @@ const Stepper = ({ stepsConfig = [], isMobile }) => {
         <div
           className="prgressBar"
           style={{
-            width: `calc(100% - 10px)`,
+            width: `calc(${mobileWidth - 27}px)`,
           }}
         >
           <div
