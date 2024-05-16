@@ -6,10 +6,11 @@ import "./ipoDetailsPage.css";
 const IpoDetailsPage = () => {
   return (
     <>
-      <Breadcumbs />
+      <h1>Hello World</h1>
+      {/* <Breadcumbs />
       <main className="mainWrapper">
         <CompanyDetailsHeader />
-      </main>
+      </main> */}
     </>
   );
 };
