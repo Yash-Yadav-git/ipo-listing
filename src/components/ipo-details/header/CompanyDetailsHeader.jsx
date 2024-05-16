@@ -5,11 +5,14 @@ import "./company-header.css";
 import Image from "../../../images/oyo-rooms-seeklogo.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import Stepper from "../stepper/Stepper";
+import globalData from "../../../constants/index";
+import helperFunctions from "../../../utility";
 
 const CompanDetails = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { companyDetails } = state;
+  const { IPO_STEPS, IPO_STEPS_Mobile, companiesData } = globalData;
+  const companyDetails = state?.companyDetails ?? companiesData[0];
   const [isMobile, setIsMobile] = useState();
   const dimesnions = {
     width: (() => window.innerWidth)(),
@@ -22,13 +25,31 @@ const CompanDetails = () => {
     }
   }, [dimesnions.width]);
 
+  function renderIssueDate(date, isIssueDate) {
+    const startDate = helperFunctions.formatInput(
+      helperFunctions.formatDate(date),
+      "ipoDetails"
+    );
+    let endDate = helperFunctions.formatInput(
+      helperFunctions.formatDate(date),
+      "ipoDetails"
+    );
+    return isIssueDate ? `${startDate.slice(0, 6)} - ${endDate}` : `${endDate}`;
+  }
+
   const values = [
     { heading: "Issue size", value: companyDetails?.issueSize },
     { heading: "Price range", value: companyDetails?.priceRange },
-    { heading: "Minumum amount", value: companyDetails?.minInvestment },
+    {
+      heading: "Minumum amount",
+      value: helperFunctions.addCommas(companyDetails?.minInvestment),
+    },
     { heading: "Lot size", value: companyDetails?.qty },
-    { heading: "Issued dates", value: companyDetails?.issueDate },
-    { heading: "Listed On", value: companyDetails?.listedOn },
+    {
+      heading: "Issued dates",
+      value: renderIssueDate(companyDetails?.issueDate, true),
+    },
+    { heading: "Listed On", value: renderIssueDate(companyDetails?.listedOn) },
     { heading: "Listed Price", value: companyDetails?.listedPrice },
     {
       heading: "Listing Gains",
@@ -46,6 +67,14 @@ const CompanDetails = () => {
 
   const renderCompanyDetails = () => {
     const operationalArray = isMobile ? mobileValues : values;
+    const hasRupees = [
+      "Issue size",
+      "Price range",
+      "Min. amount",
+      "Listed Price",
+      "Listing Gains",
+      "Minumum amount",
+    ];
     return (
       <div
         className={`${isMobile ? "mobileSectionWrapper" : "sectionWrapper"}`}
@@ -53,38 +82,18 @@ const CompanDetails = () => {
         {operationalArray.map((item) => (
           <div className="detailsWrapper">
             <span className="companySubDetailsHeading">{item.heading}</span>
-            <span className="companyDetailsHeading">{item.value}</span>
+            {hasRupees.includes(item.heading) ? (
+              <span className="companyDetailsHeading">
+                &#x20B9;{item.value}
+              </span>
+            ) : (
+              <span className="companyDetailsHeading">{item.value}</span>
+            )}
           </div>
         ))}
       </div>
     );
   };
-
-  const IPO_STEPS = [
-    { name: "Bidding starts", value: "12 Dec 2034", isCompleted: true },
-    { name: "Bidding ends", value: "15 Dec 2034", isCompleted: true },
-    {
-      name: "Allotment finalization",
-      value: "15 Dec 2034",
-      isCompleted: true,
-    },
-    { name: "Refund initiation", value: "18 Dec 2034", isCompleted: true },
-    { name: "Demat transfer", value: "18 Dec 2034", isCompleted: true },
-    { name: "Listing date", value: "21 Dec 2034", isCompleted: true },
-  ];
-
-  const IPO_STEPS_Mobile = [
-    { name: "Bidding starts", value: "12 Dec 2034", isCompleted: true },
-    { name: "Bidding ends", value: "15 Dec 2034", isCompleted: true },
-    {
-      name: "Allotment finalization",
-      value: "15 Dec 2034",
-      isCompleted: true,
-    },
-    { name: "Refund initiation", value: "18 Dec 2034", isCompleted: true },
-    { name: "Demat transfer", value: "18 Dec 2034", isCompleted: true },
-    { name: "Listing date", value: "21 Dec 2034", isCompleted: true },
-  ];
 
   return (
     <div className="detailsMainWrapper">
@@ -93,8 +102,8 @@ const CompanDetails = () => {
           <div className="companyDetailsWrapper">
             <img src={Image} width="50px" height="50px" />
             <div>
-              <span>{companyDetails.company}</span> <br />
-              <span>{companyDetails.companySubName}</span>
+              <span>{companyDetails?.company}</span> <br />
+              <span>{companyDetails?.companySubName}</span>
             </div>
           </div>
         ) : (
@@ -106,8 +115,8 @@ const CompanDetails = () => {
               <div className="companyDetailsWrapper">
                 <img src={Image} width="50px" height="50px" />
                 <div>
-                  <span>{companyDetails.company}</span> <br />
-                  <span>{companyDetails.companySubName}</span>
+                  <span>{companyDetails?.company}</span> <br />
+                  <span>{companyDetails?.companySubName}</span>
                 </div>
               </div>
             </div>
@@ -131,7 +140,7 @@ const CompanDetails = () => {
       <div className="ipoDetailsWrapper">
         <span>IPO timeline</span>
         <Stepper
-          stepsConfig={isMobile ? IPO_STEPS_Mobile : IPO_STEPS_Mobile}
+          stepsConfig={isMobile ? IPO_STEPS_Mobile : IPO_STEPS}
           isMobile={isMobile}
         />
       </div>
@@ -141,7 +150,7 @@ const CompanDetails = () => {
         {!isMobile ? (
           <span>About</span>
         ) : (
-          <span className="aboutHeading">{`${companyDetails.company} ${companyDetails?.companySubName}`}</span>
+          <span className="aboutHeading">{`${companyDetails?.company} ${companyDetails?.companySubName}`}</span>
         )}
         <p className="aboutDetails">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.

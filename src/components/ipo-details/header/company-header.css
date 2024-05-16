@@ -1,7 +1,7 @@
 .detailsMainWrapper {
   width: 800px;
   border-radius: 0.625rem;
-  border: 2px solid #f3f4f6;
+  border: 2px solid #e5e7eb;
   padding: 1.875rem;
 }
 .headerWrapper {
@@ -27,7 +27,7 @@
 
 .backIconWrapper {
   padding: 0.8125rem;
-  border: 2px solid #f3f4f6;
+  border: 2px solid #e5e7eb;
   border-radius: 0.625rem;
   display: flex;
   justify-content: center;
@@ -85,7 +85,7 @@
 .ipoDetailsWrapper {
   margin-top: 1.25rem;
   padding: 1.25rem 0.625rem 1.25rem 0.625rem;
-  border: 2px solid #f3f4f6;
+  border: 2px solid #e5e7eb;
   border-radius: 0.625rem;
 }
 
@@ -98,7 +98,7 @@
 .sectionWrapper {
   margin: 0.9375rem;
   padding: 1.875rem;
-  border: 2px solid black;
+  border: 2px solid #e5e7eb;
   border-radius: 0.625rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -129,14 +129,14 @@
   font-weight: 300;
 }
 .companyDetailsHeading {
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .about {
   margin-top: 20px;
   padding: 30px;
-  border: 2px solid #f3f4f6;
+  border: 2px solid #e5e7eb;
   border-radius: 10px;
 }
 

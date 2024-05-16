@@ -2,60 +2,12 @@ import React from "react";
 import Image from "../../../images/oyo-rooms-seeklogo.svg";
 import "./table.css";
 import { useNavigate } from "react-router-dom";
+import globalData from "../../../constants/index";
+import helper from "../../../utility/index";
 
 const Table = () => {
-  const columns = [
-    "Company/Issue Date",
-    "Issue Size",
-    "Price Range",
-    "Min Invest/Qty",
-  ];
+  const { columns, companiesData } = globalData;
   const navigate = useNavigate();
-
-  const companiesData = [
-    {
-      company: "Go Air",
-      companySubName: "Private Limited",
-      issueDate: "4th - 7th Oct 2022",
-      issueSize: "3600 Crores",
-      priceRange: "50-60",
-      minInvestment: "50000",
-      qty: "100 Shares/5Lots",
-      minimumQuantity: "150 Shares",
-      listedOn: "15 Dec 22",
-      listedPrice: "150",
-      listingGains: "10",
-      listingPercentage: "10.0%",
-    },
-    {
-      company: "Bajaj Energy",
-      companySubName: "Private Limited",
-      issueDate: "4th - 7th Oct 2022",
-      issueSize: "3600 Crores",
-      priceRange: "50-60",
-      minInvestment: "50000",
-      qty: "100 Shares/5Lots",
-      minimumQuantity: "150 Shares",
-      listedOn: "15 Dec 22",
-      listedPrice: "150",
-      listingGains: "10",
-      listingPercentage: "10.0%",
-    },
-    {
-      company: "OYO",
-      companySubName: "Private Limited",
-      issueDate: null,
-      issueSize: "3600 Crores",
-      minimumQuantity: "150 Shares",
-      priceRange: "50-60",
-      minInvestment: "50000",
-      qty: "100 Shares/5Lots",
-      listedOn: "15 Dec 22",
-      listedPrice: "150",
-      listingGains: "10",
-      listingPercentage: "10.0%",
-    },
-  ];
   const handleRowClick = (companyDetails) => {
     navigate(`details`, {
       state: {
@@ -63,6 +15,18 @@ const Table = () => {
       },
     });
   };
+
+  function renderIssueDate(company) {
+    const startDate = helper.formatInput(
+      helper.formatDate(company.issueStartDate),
+      "table"
+    );
+    let endDate = helper.formatInput(
+      helper.formatDate(company.issueEndDate),
+      "table"
+    );
+    return `${startDate.split(" ")[0]} - ${endDate}`;
+  }
 
   const renderRows = () => {
     return (
@@ -77,21 +41,27 @@ const Table = () => {
                     <div className="dataDateRow">
                       <span className="dataHeading">{item.company}</span>
                       <span className="dataSubHeading">
-                        {item.issueDate ?? "To be announced"}
+                        {renderIssueDate(item) ?? "To be announced"}
                       </span>
                     </div>
                   </div>
                 </div>
               </td>
               <td>
-                <span className="dataHeading">{item.issueSize}</span>
+                <span className="dataHeading">
+                  {" "}
+                  &#x20B9;{item.issueSize.toLocaleString("en-IN")}
+                </span>
               </td>
               <td>
-                <span className="dataHeading">{item.priceRange}</span>
+                <span className="dataHeading"> &#x20B9;{item.priceRange}</span>
               </td>
               <td>
                 <div className="dataQtyWrapper">
-                  <span className="dataHeading">{item.minInvestment}</span>
+                  <span className="dataHeading">
+                    {" "}
+                    &#x20B9;{helper.addCommas(item.minInvestment)}
+                  </span>
                   <span className="dataSubHeading">{item.qty}</span>
                 </div>
               </td>

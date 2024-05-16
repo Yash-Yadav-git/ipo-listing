@@ -12,25 +12,32 @@ const Stepper = ({ stepsConfig = [], isMobile }) => {
   const stepRef = useRef([]);
   const mainStep = useRef();
 
+  function calculateWebProgressWidth() {
+    const stepDivWidth =
+      currStep === -1 ? stepRef.current : stepRef.current.splice(0, currStep);
+
+    if (stepDivWidth.length === 1) {
+      setProgressWidth(0);
+    } else {
+      const width = stepDivWidth.reduce((acc, curr, index, arr) => {
+        if (index === 0 || index === arr.length - 1) {
+          return (acc += curr.offsetWidth / 2);
+        }
+        return (acc += curr.offsetWidth);
+      }, 0);
+      let offset = stepDivWidth.length * 5.6;
+      setProgressWidth(width + offset);
+    }
+  }
+
   useEffect(() => {
-    console.log("Values are ", mainStep.current.offsetHeight);
     setMargins({
       marginLeft: stepRef.current[0].offsetWidth / 2,
       marginRight: stepRef.current[stepRef.current.length - 1].offsetWidth / 2,
     });
 
-    setMobileWidth(
-      isMobile ? mainStep.current.offsetHeight : mainStep.current.offsetWidth
-    );
-    let arr = stepRef.current.splice(0, currStep);
-    arr = arr.length === 0 ? stepRef.current : arr;
-    const width = arr.reduce((acc, curr, index, arr) => {
-      if (index === 0 || index === arr.length - 1) {
-        return (acc += curr.offsetWidth / 2);
-      }
-      return (acc += curr.offsetWidth);
-    }, 0);
-    setProgressWidth(width);
+    setMobileWidth(mainStep.current.offsetHeight);
+    calculateWebProgressWidth();
   }, [stepRef.current, mainStep.current, isMobile]);
 
   const calculateProgressWidth = () => {
@@ -90,7 +97,7 @@ const Stepper = ({ stepsConfig = [], isMobile }) => {
         >
           <div
             className="progress"
-            style={{ width: `${calculateProgressWidth()}%` }}
+            style={{ width: `${progressWidth}px` }}
           ></div>
         </div>
       )}
